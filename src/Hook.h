@@ -10,7 +10,7 @@ namespace SOB
 			REL::Relocation<uintptr_t> hook{ RELOCATION_ID(42928, 44108) };
 			auto& trampoline = SKSE::GetTrampoline();
 			SKSE::AllocTrampoline(1 << 4);
-			_LaunchArrow = trampoline.write_call<5>(hook.address() + 0x384, LaunchArrow);
+			_LaunchArrow = trampoline.write_call<5>(hook.address() + REL::Relocate(0x384, 0x38C), LaunchArrow);
 		};
 
 	private:
